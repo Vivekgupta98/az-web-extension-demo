@@ -1,16 +1,17 @@
 {
-  "manifest_version": 2,
-  "name": "Your Chrome Extension Name",
+  "manifest_version": 3,
+  "name": "AZ Todo Problems",
   "version": "0.1",
-  "author": "First Last",
-  "description": "A description about your Chrome Extension...",
+  "author": "Vivek",
+  "description": "This extension will help you to create a todo list for your problems.",
   "permissions": [
-    ""
+    "storage",
+    "tabs"
   ],
   "content_scripts": [
     {
       "matches": [
-        "<all_urls>"
+        "https://*.learning.algozenith.com/problems/*"
       ],
       "js": [
         "content.js"
@@ -22,9 +23,24 @@
       "background.js"
     ]
   },
-  "browser_action": {
-    "default_icon": "logo.png",
-    "default_popup": "index.html",
-    "default_title": "A tooltip popup description when you hover over the Chrome Extension icon."
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/bookmark.png",
+        "assets/play.png",
+        "assets/delete.png",
+        "assets/save.png"
+      ],
+      "matches":["<all_urls>"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "assets/ext-icon.png",
+      "24": "assets/ext-icon.png",
+      "32": "assets/ext-icon.png"
+    },
+    "default_title": "AZ Todo Problems",
+    "default_popup": "popup.html"
   }
 }
